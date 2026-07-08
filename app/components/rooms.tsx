@@ -27,14 +27,17 @@ const rooms = [
   },
 ]
 const Rooms = ({ isVisible, onClose, defaultSection = "Rooms" }: RoomsProps) => {
-  const roomcomp = []
+  const roomcomp = rooms.map((room) => (
+    <div
+      key={room.id}
+      className="space-y-6 border-2 border-white rounded-2xl p-5"
+    >
+      <h2 className="text-3xl font-bold text-white">{room.name}</h2>
+      <p className="text-zinc-300 text-lg">{room.disc}</p>
+      <p className="text-zinc-300 text-lg">{room.prices}</p>
+    </div>
+  ));
   const [activeSection, setActiveSection] = useState(defaultSection);
-  for(let room of rooms){
-    roomcomp.push(
-    <div key={room.id} className="space-y-6 border-2 border-white rounded-2xl p-5">
-      <h2 className="text-3xl font-bold text-white">{room.name}</h2><p className="text-zinc-300 text-lg">{room.disc}</p><p className="text-zinc-300 text-lg">{room.prices}</p>
-    </div>)
-  }
   useEffect(() => {
     if (isVisible) {
       setActiveSection(defaultSection);
