@@ -12,7 +12,7 @@ const Nav = ({ onMenuClick, onBookingClick, onSectionClick }: NavProps) => {
     <div className="flex w-full flex-col fixed backdrop-blur-md top-0 z-50 left-0 ">
       <div className="flex px-4 sm:px-6 justify-between items-center border-b border-gray-500 h-16">
         <button 
-          onClick={onMenuClick} 
+          onClick={() => onSectionClick("Rooms")}
           className="flex h-12 items-center gap-2 text-white hover:scale-105 active:scale-95 transition-all"
         >
           <img width="32" height="32" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/menu--v3.png" alt="menu" />
